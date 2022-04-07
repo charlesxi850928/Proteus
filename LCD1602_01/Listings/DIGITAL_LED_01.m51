@@ -1,0 +1,132 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/30/2022  23:09:01  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PROGRAM\KEIL_MDK\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\8_DIGITAL_LED_01.obj TO .\Objects\DIGITAL_LED_01 P
+>> RINT (.\Listings\DIGITAL_LED_01.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\8_DIGITAL_LED_01.obj (8_DIGITAL_LED_01)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?SLCMP)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+
+
+LINK MAP OF MODULE:  .\Objects\DIGITAL_LED_01 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         _DATA_GROUP_
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0042H     UNIT         ?PR?MAIN?8_DIGITAL_LED_01
+            CODE    0045H     0036H     UNIT         ?C?LIB_CODE
+            CODE    007BH     0010H     UNIT         ?CO?8_DIGITAL_LED_01
+            CODE    008BH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\DIGITAL_LED_01 (?C_STARTUP)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?C_C51STARTUP                     -----    -----
+  +--> ?PR?MAIN?8_DIGITAL_LED_01
+
+?PR?MAIN?8_DIGITAL_LED_01         0008H    0008H
+  +--> ?CO?8_DIGITAL_LED_01
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DIGITAL_LED_01 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:008BH         SEGMENT       ?C_C51STARTUP
+  I:0010H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/30/2022  23:09:01  PAGE 2
+
+
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:008EH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:008BH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:008BH         LINE#         133
+  C:008DH         LINE#         134
+  C:008EH         LINE#         135
+  C:008FH         LINE#         136
+  C:0091H         LINE#         185
+  C:0094H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        8_DIGITAL_LED_01
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:007BH         PUBLIC        table
+  C:0003H         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:000CH         SYMBOL        j
+  -------         ENDDO         
+  C:0003H         LINE#         4
+  C:0003H         LINE#         6
+  C:0006H         LINE#         7
+  C:000EH         LINE#         8
+  C:0022H         LINE#         9
+  C:002AH         LINE#         10
+  C:0035H         LINE#         11
+  C:0044H         LINE#         12
+  C:0044H         LINE#         13
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        8_DIGITAL_LED_01
+
+  -------         MODULE        ?C?SLCMP
+  C:0045H         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/30/2022  23:09:01  PAGE 3
+
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0064H         PUBLIC        ?C?LLDIIDATA
+  C:005BH         PUBLIC        ?C?LLDIIDATA1
+  C:005DH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+Program Size: data=17.0 xdata=0 code=151
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

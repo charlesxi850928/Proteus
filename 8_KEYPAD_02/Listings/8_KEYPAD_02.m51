@@ -1,0 +1,227 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/31/2022  20:17:03  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PROGRAM\KEIL_MDK\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\8_KEYPAD_02.obj TO .\Objects\8_KEYPAD_02 PRINT (.\
+>> Listings\8_KEYPAD_02.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\8_KEYPAD_02.obj (8_KEYPAD_02)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C_INIT)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?SLCMP)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?LCASE)
+
+
+LINK MAP OF MODULE:  .\Objects\8_KEYPAD_02 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0024H     UNIT         _DATA_GROUP_
+            DATA    002CH     0020H     UNIT         ?DT?8_KEYPAD_02
+            IDATA   004CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0238H     UNIT         ?PR?READKEY?8_KEYPAD_02
+            CODE    023BH     00BBH     UNIT         ?PR?MAIN?8_KEYPAD_02
+            CODE    02F6H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0382H     0070H     UNIT         ?C?LIB_CODE
+            CODE    03F2H     0024H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\8_KEYPAD_02 (?C_STARTUP)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?8_KEYPAD_02
+  +--> ?C_INITSEG
+
+?PR?MAIN?8_KEYPAD_02            0008H    0018H
+  +--> ?PR?READKEY?8_KEYPAD_02
+
+?PR?READKEY?8_KEYPAD_02         0020H    000CH
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\8_KEYPAD_02 (?C_STARTUP)
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/31/2022  20:17:03  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:02F6H         SEGMENT       ?C_C51STARTUP
+  I:004CH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:02F9H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:02F6H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:02F6H         LINE#         133
+  C:02F8H         LINE#         134
+  C:02F9H         LINE#         135
+  C:02FAH         LINE#         136
+  C:02FCH         LINE#         185
+  C:02FFH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        8_KEYPAD_02
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:002CH         PUBLIC        table
+  C:023BH         PUBLIC        main
+  C:0003H         PUBLIC        readKey
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:000AH         SYMBOL        j
+  D:000CH         SYMBOL        t
+  D:000EH         SYMBOL        show
+  -------         DO            
+  D:001EH         SYMBOL        kv
+  -------         ENDDO         
+  -------         ENDDO         
+  C:023BH         LINE#         4
+  C:023BH         LINE#         6
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/31/2022  20:17:03  PAGE 3
+
+
+  C:0259H         LINE#         7
+  C:0259H         LINE#         8
+  C:0260H         LINE#         9
+  C:0267H         LINE#         10
+  C:0292H         LINE#         11
+  C:02A0H         LINE#         12
+  C:02A6H         LINE#         13
+  C:02A6H         LINE#         14
+  C:02ABH         LINE#         15
+  C:02B0H         LINE#         16
+  C:02BDH         LINE#         17
+  C:02C4H         LINE#         18
+  C:02D6H         LINE#         19
+  C:02DCH         LINE#         20
+  C:02E9H         LINE#         21
+  C:02F4H         LINE#         22
+  -------         ENDPROC       MAIN
+  -------         PROC          READKEY
+  -------         DO            
+  D:0020H         SYMBOL        keyValue
+  D:0022H         SYMBOL        debounce
+  D:0024H         SYMBOL        k
+  D:0028H         SYMBOL        p
+  -------         ENDDO         
+  C:0003H         LINE#         26
+  C:0003H         LINE#         27
+  C:0009H         LINE#         28
+  C:000FH         LINE#         31
+  C:0012H         LINE#         32
+  C:001DH         LINE#         33
+  C:0030H         LINE#         35
+  C:003FH         LINE#         36
+  C:004CH         LINE#         37
+  C:0056H         LINE#         38
+  C:007BH         LINE#         39
+  C:0083H         LINE#         40
+  C:008BH         LINE#         41
+  C:0093H         LINE#         42
+  C:0099H         LINE#         43
+  C:0099H         LINE#         44
+  C:0099H         LINE#         46
+  C:009CH         LINE#         47
+  C:00A7H         LINE#         48
+  C:00BAH         LINE#         50
+  C:00C9H         LINE#         51
+  C:00D6H         LINE#         52
+  C:00E0H         LINE#         53
+  C:0105H         LINE#         54
+  C:010DH         LINE#         55
+  C:0115H         LINE#         56
+  C:011DH         LINE#         57
+  C:0122H         LINE#         58
+  C:0122H         LINE#         59
+  C:0122H         LINE#         61
+  C:0125H         LINE#         62
+  C:0130H         LINE#         63
+  C:0143H         LINE#         65
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/31/2022  20:17:03  PAGE 4
+
+
+  C:0152H         LINE#         66
+  C:015FH         LINE#         67
+  C:0169H         LINE#         68
+  C:018EH         LINE#         69
+  C:0196H         LINE#         70
+  C:019EH         LINE#         71
+  C:01A6H         LINE#         72
+  C:01ACH         LINE#         73
+  C:01ACH         LINE#         74
+  C:01ACH         LINE#         76
+  C:01AFH         LINE#         77
+  C:01BAH         LINE#         78
+  C:01CDH         LINE#         80
+  C:01DCH         LINE#         81
+  C:01E9H         LINE#         82
+  C:01F3H         LINE#         83
+  C:0218H         LINE#         84
+  C:0220H         LINE#         85
+  C:0228H         LINE#         86
+  C:0230H         LINE#         87
+  C:0236H         LINE#         88
+  C:0236H         LINE#         89
+  C:0236H         LINE#         90
+  C:023AH         LINE#         91
+  -------         ENDPROC       READKEY
+  -------         ENDMOD        8_KEYPAD_02
+
+  -------         MODULE        ?C?SLCMP
+  C:0382H         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:03A1H         PUBLIC        ?C?LLDIIDATA
+  C:0398H         PUBLIC        ?C?LLDIIDATA1
+  C:039AH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        ?C?LCASE
+  C:03B8H         PUBLIC        ?C?LCASE
+  -------         ENDMOD        ?C?LCASE
+
+Program Size: data=77.0 xdata=0 code=1046
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

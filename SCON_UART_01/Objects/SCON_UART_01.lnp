@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\SCON_UART_01.obj" 
+TO ".\Objects\SCON_UART_01" 
+PRINT(".\Listings\SCON_UART_01.m51")

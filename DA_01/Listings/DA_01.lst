@@ -1,0 +1,55 @@
+C51 COMPILER V9.60.0.0   DA_01                                                             04/04/2022 08:21:12 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE DA_01
+OBJECT MODULE PLACED IN .\Objects\DA_01.obj
+COMPILER INVOKED BY: D:\Program\KEIL_MDK\C51\BIN\C51.EXE DA_01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\DA_01.lst) TABS(2) OBJECT(.\Objects\DA_01.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <absacc.h>
+   3          #define DA XBYTE[0xFEFF]
+   4          //Below data from Sin.xlsx excel
+   5          unsigned char num[100]={127,  135,  143,  151,  159,  166,  174,  181,  188,  195,  202,  208,  214,  220,  225,  230,  23
+             -4,  238,  242,  245,  248,  250,  252,  253,  254,  254,  254,  253,  252,  250,  248,  245,  242,  238,  234,  230,  225,  220,  214,  208,  20
+             -2,  195,  188,  181,  174,  166,  159,  151,  143,  135,  127,  119,  111,  103,  95, 88, 80, 73, 66, 59, 52, 46, 40, 34, 29, 24, 20, 
+             -16,  12,  9,  6,  4,  2,  1,  0,  0,  0,  1,  2,  4,  6,  9,  12, 16, 20, 24, 29, 34, 40, 46, 52, 59, 66, 73, 80, 88, 95, 103,  111,  119
+             -};
+   6          int i;
+   7          //Triangular waves
+   8          void t3(){
+   9   1        for(i=99;i>=0;i--){
+  10   2          DA = i;
+  11   2        }
+  12   1        for(i=0;i<100;i++){
+  13   2          DA = i;
+  14   2        }
+  15   1      }
+  16          //Sine waves
+  17          void sin(){
+  18   1        for(i=0;i<100;i++){
+  19   2          DA = num[i];
+  20   2        }
+  21   1      }
+  22          void main(){
+  23   1        while(1){
+  24   2          //t3();
+  25   2          sin();
+  26   2        }
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     89    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =    102    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

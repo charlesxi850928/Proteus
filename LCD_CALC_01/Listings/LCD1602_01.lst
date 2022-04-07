@@ -1,0 +1,71 @@
+C51 COMPILER V9.60.0.0   LCD1602_01                                                        04/05/2022 00:12:43 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD1602_01
+OBJECT MODULE PLACED IN .\Objects\LCD1602_01.obj
+COMPILER INVOKED BY: D:\Program\KEIL_MDK\C51\BIN\C51.EXE LCD1602_01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(
+                    -.\Listings\LCD1602_01.lst) TABS(2) OBJECT(.\Objects\LCD1602_01.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit E = P2^0;
+   3          sbit RW = P2^1;
+   4          sbit RS = P2^2;
+   5          void writeCMD(unsigned char x){
+   6   1        int i;
+   7   1        RS=0;//CMD
+   8   1        RW=0;//Write
+   9   1        P0=x;//CMD Content
+  10   1        E=1;//Enable/Start Read/Write Data
+  11   1        for(i=0;i<2000;i++);//Wait
+  12   1        E=0;//Colose/End Read/Write Data
+  13   1      }
+  14          void initLCD(){
+  15   1        writeCMD(0x01);
+  16   1        writeCMD(0x38);
+  17   1        writeCMD(0x0F);
+  18   1        writeCMD(0x06);
+  19   1      }
+  20          void writeData(unsigned char x){
+  21   1        int i;
+  22   1        RS=1;//Data
+  23   1        RW=0;//Write
+  24   1        P0=x;//Data Content
+  25   1        E=1;//Enable/Start Read/Write Data
+  26   1        for(i=0;i<2000;i++);//Wait
+  27   1        E=0;//Colose/End Read/Write Data
+  28   1      }
+  29          void main(){
+  30   1        int i;
+  31   1        char text1[] = {"I'm Chinese!"};
+  32   1        char text2[] = {"I love China!"};
+  33   1        //Above 2 lines must be before below initLCD
+  34   1        initLCD();
+  35   1      
+  36   1        for(i=0;i<12;i++){
+  37   2          writeCMD(0x81+i);//Position/Address - First Row - See Screenshot
+  38   2          writeData(text1[i]);
+  39   2        } 
+  40   1        for(i=0;i<13;i++){
+  41   2          writeCMD(0xC1+i);//Position/Address - Second Row - See Screenshot
+  42   2          writeData(text2[i]);
+  43   2        } 
+  44   1        while(1);
+  45   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    173    ----
+   CONSTANT SIZE    =     27    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      27
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.0.0   LCD1602_01                                                        04/05/2022 00:12:43 PAGE 2   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,177 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/05/2022  20:58:31  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PROGRAM\KEIL_MDK\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\LCD_CALC_01.obj TO .\Objects\LCD12864_01 PRINT (.\
+>> Listings\LCD12864_01.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\LCD_CALC_01.obj (LCD_CALC_01)
+
+
+LINK MAP OF MODULE:  .\Objects\LCD12864_01 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0400H     UNIT         ?CO?LCD_CALC_01
+            CODE    0403H     004EH     UNIT         ?PR?MAIN?LCD_CALC_01
+            CODE    0451H     0019H     UNIT         ?PR?_WRITECMD?LCD_CALC_01
+            CODE    046AH     0019H     UNIT         ?PR?_WRITEDATA?LCD_CALC_01
+            CODE    0483H     0014H     UNIT         ?PR?INITLCD?LCD_CALC_01
+            CODE    0497H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\LCD12864_01 (?C_STARTUP)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?LCD_CALC_01
+
+?PR?MAIN?LCD_CALC_01               0008H    0002H
+  +--> ?PR?INITLCD?LCD_CALC_01
+  +--> ?PR?_WRITECMD?LCD_CALC_01
+  +--> ?CO?LCD_CALC_01
+  +--> ?PR?_WRITEDATA?LCD_CALC_01
+
+?PR?INITLCD?LCD_CALC_01            -----    -----
+  +--> ?PR?_WRITECMD?LCD_CALC_01
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\LCD12864_01 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/05/2022  20:58:31  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0497H         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:049AH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0497H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0497H         LINE#         133
+  C:0499H         LINE#         134
+  C:049AH         LINE#         135
+  C:049BH         LINE#         136
+  C:049DH         LINE#         185
+  C:04A0H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        LCD_CALC_01
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:0451H         PUBLIC        _writeCMD
+  C:0483H         PUBLIC        initLCD
+  B:00A0H.2       PUBLIC        RS
+  C:0403H         PUBLIC        main
+  B:00A0H.1       PUBLIC        RW
+  C:046AH         PUBLIC        _writeData
+  C:0003H         PUBLIC        dispx
+  B:00A0H.0       PUBLIC        E
+  B:00A0H.3       PUBLIC        CS1
+  B:00A0H.4       PUBLIC        CS2
+  B:00A0H.5       PUBLIC        RST
+  -------         PROC          _WRITECMD
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0451H         LINE#         74
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/05/2022  20:58:31  PAGE 3
+
+
+  C:0451H         LINE#         76
+  C:0453H         LINE#         77
+  C:0455H         LINE#         78
+  C:0457H         LINE#         79
+  C:0459H         LINE#         80
+  C:0467H         LINE#         81
+  C:0469H         LINE#         82
+  -------         ENDPROC       _WRITECMD
+  -------         PROC          INITLCD
+  C:0483H         LINE#         83
+  C:0483H         LINE#         84
+  C:0488H         LINE#         85
+  C:048DH         LINE#         86
+  C:0492H         LINE#         87
+  -------         ENDPROC       INITLCD
+  -------         PROC          _WRITEDATA
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:046AH         LINE#         89
+  C:046AH         LINE#         91
+  C:046CH         LINE#         92
+  C:046EH         LINE#         93
+  C:0470H         LINE#         94
+  C:0472H         LINE#         95
+  C:0480H         LINE#         96
+  C:0482H         LINE#         97
+  -------         ENDPROC       _WRITEDATA
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  D:0008H         SYMBOL        k
+  -------         ENDDO         
+  C:0403H         LINE#         98
+  C:0403H         LINE#         100
+  C:0405H         LINE#         101
+  C:0407H         LINE#         102
+  C:040AH         LINE#         104
+  C:0411H         LINE#         106
+  C:0413H         LINE#         107
+  C:0415H         LINE#         108
+  C:041CH         LINE#         109
+  C:041FH         LINE#         110
+  C:0439H         LINE#         111
+  C:0444H         LINE#         113
+  C:044FH         LINE#         114
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LCD_CALC_01
+
+Program Size: data=11.0 xdata=0 code=1187
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

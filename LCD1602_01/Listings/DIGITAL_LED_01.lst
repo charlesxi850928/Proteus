@@ -1,0 +1,111 @@
+C51 COMPILER V9.60.0.0   DIGITAL_LED_01                                                    03/30/2022 22:27:16 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE DIGITAL_LED_01
+OBJECT MODULE PLACED IN .\Objects\DIGITAL_LED_01.obj
+COMPILER INVOKED BY: D:\Program\KEIL_MDK\C51\BIN\C51.EXE DIGITAL_LED_01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\DIGITAL_LED_01.lst) TABS(2) OBJECT(.\Objects\DIGITAL_LED_01.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          int openEXINT0_NUM0();
+   3          int openTimerINT0_NUM1();
+   4          int openEXINT1_NUM2();
+   5          void show16();
+   6          void show10();
+   7          int count;
+   8          int x;
+   9          int MODE;
+  10          sbit LED_ONE = P1^0;
+  11          char code table[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};
+  12          void main(){
+  13   1        MODE = 0;
+  14   1        LED_ONE = 1; //LED LIGTH
+  15   1        openEXINT0_NUM0();
+  16   1        openTimerINT0_NUM1();
+  17   1        openEXINT1_NUM2();
+  18   1        while(1){
+  19   2          show16();
+  20   2          show10();
+  21   2        }
+  22   1      }
+  23          void show16(){
+  24   1        count = 0;
+  25   1        for(x=0;x<16;x++){
+  26   2          P2=table[x];
+  27   2          while(count<20);
+  28   2          count = 0;
+  29   2          if(x==16)x=0;
+  30   2          if(MODE==1)break;
+  31   2        }
+  32   1      } 
+  33          void show10(){
+  34   1        count = 0;
+  35   1        for(x=0;x<10;x++){
+  36   2          P2=table[x];
+  37   2          while(count<20);
+  38   2          count = 0;
+  39   2          if(x==10)x=0;
+  40   2          if(MODE==0)break;
+  41   2        }
+  42   1      } 
+  43          //INT0
+  44          void key1() interrupt 0{
+  45   1        MODE = ~MODE;
+  46   1      }
+  47          //T0
+  48          void timer() interrupt 1{
+  49   1        count++;
+  50   1        TH0 = 0x3C;
+  51   1        TL0 = 0xB0;
+  52   1      }
+  53          //INT1
+  54          void key2() interrupt 2{
+C51 COMPILER V9.60.0.0   DIGITAL_LED_01                                                    03/30/2022 22:27:16 PAGE 2   
+
+  55   1        LED_ONE = ~LED_ONE;
+  56   1      }
+  57          //T1
+  58          //XDINT
+  59          
+  60          int openEXINT0_NUM0(){
+  61   1        IT0 = 1; //Falling Edge Trigger INT0 externel interrupt
+  62   1        EX0 = 1; //Allow INT0 externel interrupt
+  63   1        EA = 1;  //Open Main interrupt
+  64   1        return 0;
+  65   1      }
+  66          
+  67          int openTimerINT0_NUM1(){
+  68   1        TMOD = 0x01;
+  69   1        TH0 = 0x3C;
+  70   1        TL0 = 0xB0;
+  71   1        ET0 = 1;
+  72   1        EA = 1;
+  73   1        TR0 = 1;
+  74   1        return 0;
+  75   1      }
+  76          
+  77          int openEXINT1_NUM2(){
+  78   1        IT1 = 1; //Falling Edge Trigger INT1 externel interrupt
+  79   1        EX1 = 1; //Allow INT1 externel interrupt
+  80   1        EA = 1;  //Open Main interrupt
+  81   1        return 0;
+  82   1      }
+  83          
+  84          
+  85          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    256    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

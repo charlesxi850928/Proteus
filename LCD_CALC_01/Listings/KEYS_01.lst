@@ -1,0 +1,76 @@
+C51 COMPILER V9.60.0.0   KEYS_01                                                           03/31/2022 08:18:48 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEYS_01
+OBJECT MODULE PLACED IN .\Objects\KEYS_01.obj
+COMPILER INVOKED BY: D:\Program\KEIL_MDK\C51\BIN\C51.EXE KEYS_01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\KEYS_01.lst) TABS(2) OBJECT(.\Objects\KEYS_01.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit key1 = P1^0;
+   3          sbit key2 = P1^1;
+   4          sbit key3 = P1^2;
+   5          sbit key4 = P1^3;
+   6          sbit key5 = P1^4;
+   7          sbit key6 = P1^5;
+   8          sbit key7 = P1^6;
+   9          sbit key8 = P1^7;
+  10          int table[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};
+  11          void main(){
+  12   1        long i,j,k,p; 
+  13   1        int num;
+  14   1        while(1){
+  15   2          p = P1;
+  16   2          if(p!=0xFF){
+  17   3            k = 2000;
+  18   3            while(k--);
+  19   3            p = P1;
+  20   3            switch(p){
+  21   4              case 0xFE: num = table[1]; break;
+  22   4              case 0xFD: num = table[2]; break;
+  23   4              case 0xFB: num = table[3]; break;
+  24   4              case 0xF7: num = table[4]; break;
+  25   4              case 0xEF: num = table[5]; break;
+  26   4              case 0xDF: num = table[6]; break;
+  27   4              case 0xBF: num = table[7]; break;
+  28   4              case 0x7F: num = table[8]; break;
+  29   4            }
+  30   3          }
+  31   2          P3 = 0xFE;
+  32   2          P2 = num;
+  33   2        }
+  34   1        
+  35   1        j = 0;
+  36   1        k = 1; 
+  37   1        while(0){
+  38   2        //while(j<9){
+  39   2          P3 = 0xff-k;
+  40   2          P2 = table[j++];
+  41   2          i = 50;
+  42   2          while(i--);
+  43   2          k = k*2;
+  44   2        }
+  45   1      }
+  46          
+  47          
+  48          
+*** WARNING C294 IN LINE 35 OF KEYS_01.c: unreachable code
+*** WARNING C294 IN LINE 39 OF KEYS_01.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    199    ----
+C51 COMPILER V9.60.0.0   KEYS_01                                                           03/31/2022 08:18:48 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     32      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,194 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/06/2022  22:59:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PROGRAM\KEIL_MDK\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\SCON_UART_01.obj TO .\Objects\SCON_UART_01 PRINT (
+>> .\Listings\SCON_UART_01.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\SCON_UART_01.obj (SCON_UART_01)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?COPY)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?CLDOPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\SCON_UART_01 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000FH     UNIT         _DATA_GROUP_
+            IDATA   0017H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0017H     UNIT         ?CO?SCON_UART_01
+                    001AH     0009H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     0123H     UNIT         ?C?LIB_CODE
+            CODE    0149H     005DH     UNIT         ?PR?UART?SCON_UART_01
+            CODE    01A6H     0027H     UNIT         ?PR?_SENDSTR?SCON_UART_01
+            CODE    01CDH     0016H     UNIT         ?PR?INITUART?SCON_UART_01
+            CODE    01E3H     0011H     UNIT         ?PR?MAIN?SCON_UART_01
+            CODE    01F4H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\SCON_UART_01 (?C_STARTUP)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?C_C51STARTUP                     -----    -----
+  +--> ?PR?MAIN?SCON_UART_01
+
+?PR?MAIN?SCON_UART_01             -----    -----
+  +--> ?PR?INITUART?SCON_UART_01
+  +--> ?CO?SCON_UART_01
+  +--> ?PR?_SENDSTR?SCON_UART_01
+
+?PR?_SENDSTR?SCON_UART_01         0008H    0005H
+
+*** NEW ROOT ***************************************************
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/06/2022  22:59:16  PAGE 2
+
+
+?PR?UART?SCON_UART_01             000DH    000AH
+  +--> ?CO?SCON_UART_01
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\SCON_UART_01 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:01F4H         SEGMENT       ?C_C51STARTUP
+  I:0017H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:01F7H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:01F4H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:01F4H         LINE#         133
+  C:01F6H         LINE#         134
+  C:01F7H         LINE#         135
+  C:01F8H         LINE#         136
+  C:01FAH         LINE#         185
+  C:01FDH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        SCON_UART_01
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  B:00A8H.4       PUBLIC        ES
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:01E3H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:0149H         PUBLIC        uart
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/06/2022  22:59:16  PAGE 3
+
+
+  C:0010H         SYMBOL        _?ix1000
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  C:01A6H         PUBLIC        _sendStr
+  C:01CDH         PUBLIC        initUART
+  -------         PROC          INITUART
+  C:01CDH         LINE#         2
+  C:01CDH         LINE#         4
+  C:01D0H         LINE#         5
+  C:01D3H         LINE#         6
+  C:01D6H         LINE#         7
+  C:01D9H         LINE#         8
+  C:01DBH         LINE#         9
+  C:01DEH         LINE#         10
+  C:01E0H         LINE#         11
+  C:01E2H         LINE#         12
+  -------         ENDPROC       INITUART
+  -------         PROC          _SENDSTR
+  D:0008H         SYMBOL        str
+  -------         DO            
+  D:000BH         SYMBOL        i
+  -------         ENDDO         
+  C:01A6H         LINE#         13
+  C:01ACH         LINE#         15
+  C:01BDH         LINE#         16
+  C:01BFH         LINE#         17
+  C:01C2H         LINE#         19
+  C:01CAH         LINE#         20
+  C:01CCH         LINE#         21
+  -------         ENDPROC       _SENDSTR
+  -------         PROC          MAIN
+  C:01E3H         LINE#         22
+  C:01E3H         LINE#         23
+  C:01E6H         LINE#         24
+  C:01E9H         LINE#         25
+  C:01F2H         LINE#         27
+  -------         ENDPROC       MAIN
+  -------         PROC          UART
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  D:000DH         SYMBOL        num
+  -------         ENDDO         
+  C:0149H         LINE#         30
+  C:0166H         LINE#         33
+  C:0179H         LINE#         35
+  C:017CH         LINE#         36
+  C:017EH         LINE#         37
+  C:0180H         LINE#         39
+  C:0187H         LINE#         40
+  C:0189H         LINE#         41
+  C:0189H         LINE#         42
+  C:018BH         LINE#         43
+  C:018BH         LINE#         44
+  -------         ENDPROC       UART
+  -------         ENDMOD        SCON_UART_01
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/06/2022  22:59:16  PAGE 4
+
+
+  -------         MODULE        ?C?COPY
+  C:00F6H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?CLDOPTR
+  C:011CH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+Program Size: data=24.0 xdata=0 code=503
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

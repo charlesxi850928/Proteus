@@ -1,0 +1,70 @@
+C51 COMPILER V9.60.0.0   SCON_UART_01                                                      04/06/2022 22:59:16 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE SCON_UART_01
+OBJECT MODULE PLACED IN .\Objects\SCON_UART_01.obj
+COMPILER INVOKED BY: D:\Program\KEIL_MDK\C51\BIN\C51.EXE SCON_UART_01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRIN
+                    -T(.\Listings\SCON_UART_01.lst) TABS(2) OBJECT(.\Objects\SCON_UART_01.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          void initUART(){
+   3   1        //SCON = 0x40;//Way 2, Send
+   4   1        SCON = 0x50;//Way 1, Receive
+   5   1        TL1 = 0xFD;
+   6   1        TH1 = 0xFD;
+   7   1        TMOD = 0x20;
+   8   1        TR1 = 1;
+   9   1        PCON &=0xEF;
+  10   1        ES = 1;//Enable UART Interrupt;
+  11   1        EA = 1;//Open main switch
+  12   1      }
+  13          void sendStr(char* str){
+  14   1        int i;
+  15   1        while(str[i]!='\0'){
+  16   2          SBUF = str[i];
+  17   2          while(!TI);//Wait send finish
+  18   2          //TI = 0;//Clear TI flag
+  19   2          i++;
+  20   2        } 
+  21   1      }
+  22          int main(){
+  23   1        initUART();
+  24   1        P2 = 0x00;
+  25   1        sendStr("Hello World!");
+  26   1        
+  27   1        while(1);
+  28   1      }
+  29          
+  30          void uart(void) interrupt 4{
+  31   1        unsigned char temp;
+  32   1        //Digital Code
+  33   1        unsigned char num[] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+  34   1        //Receive Interruput
+  35   1        if(RI){
+  36   2          RI = 0;//Clear Receive Interrupt
+  37   2          temp = SBUF;
+  38   2          //'0' - 0x3f
+  39   2          P2 = num[temp-'0'];
+  40   2        }
+  41   1        else{
+  42   2          TI = 0;//Clear Send Interrupt
+  43   2        }
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    171    ----
+   CONSTANT SIZE    =     23    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      15
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.60.0.0   SCON_UART_01                                                      04/06/2022 22:59:16 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

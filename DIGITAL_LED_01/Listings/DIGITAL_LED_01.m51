@@ -1,0 +1,232 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/30/2022  22:27:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PROGRAM\KEIL_MDK\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\DIGITAL_LED_01.obj TO .\Objects\DIGITAL_LED_01 PRI
+>> NT (.\Listings\DIGITAL_LED_01.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\DIGITAL_LED_01.obj (DIGITAL_LED_01)
+
+
+LINK MAP OF MODULE:  .\Objects\DIGITAL_LED_01 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         ?DT?DIGITAL_LED_01
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     0003H     UNIT         ?PR?KEY2?DIGITAL_LED_01
+                    0009H     0002H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     0005H                  *** GAP ***
+            CODE    0013H     0003H     ABSOLUTE     
+            CODE    0016H     0053H     UNIT         ?PR?SHOW16?DIGITAL_LED_01
+            CODE    0069H     0051H     UNIT         ?PR?SHOW10?DIGITAL_LED_01
+            CODE    00BAH     0018H     UNIT         ?PR?MAIN?DIGITAL_LED_01
+            CODE    00D2H     0013H     UNIT         ?PR?TIMER?DIGITAL_LED_01
+            CODE    00E5H     0013H     UNIT         ?PR?OPENTIMERINT0_NUM1?DIGITAL_LED_01
+            CODE    00F8H     0010H     UNIT         ?CO?DIGITAL_LED_01
+            CODE    0108H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0114H     000AH     UNIT         ?PR?OPENEXINT0_NUM0?DIGITAL_LED_01
+            CODE    011EH     000AH     UNIT         ?PR?OPENEXINT1_NUM2?DIGITAL_LED_01
+            CODE    0128H     0007H     UNIT         ?PR?KEY1?DIGITAL_LED_01
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\DIGITAL_LED_01 (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DIGITAL_LED_01
+
+?PR?MAIN?DIGITAL_LED_01
+  +--> ?PR?OPENEXINT0_NUM0?DIGITAL_LED_01
+  +--> ?PR?OPENTIMERINT0_NUM1?DIGITAL_LED_01
+  +--> ?PR?OPENEXINT1_NUM2?DIGITAL_LED_01
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/30/2022  22:27:16  PAGE 2
+
+
+  +--> ?PR?SHOW16?DIGITAL_LED_01
+  +--> ?PR?SHOW10?DIGITAL_LED_01
+
+?PR?SHOW16?DIGITAL_LED_01
+  +--> ?CO?DIGITAL_LED_01
+
+?PR?SHOW10?DIGITAL_LED_01
+  +--> ?CO?DIGITAL_LED_01
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DIGITAL_LED_01 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0108H         SEGMENT       ?C_C51STARTUP
+  I:000EH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:010BH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0108H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0108H         LINE#         133
+  C:010AH         LINE#         134
+  C:010BH         LINE#         135
+  C:010CH         LINE#         136
+  C:010EH         LINE#         185
+  C:0111H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        DIGITAL_LED_01
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  C:00F8H         PUBLIC        table
+  B:0090H.0       PUBLIC        LED_ONE
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/30/2022  22:27:16  PAGE 3
+
+
+  C:00D2H         PUBLIC        timer
+  C:0069H         PUBLIC        show10
+  D:0008H         PUBLIC        MODE
+  C:00BAH         PUBLIC        main
+  C:0016H         PUBLIC        show16
+  D:000AH         PUBLIC        count
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:00E5H         PUBLIC        openTimerINT0_NUM1
+  C:0114H         PUBLIC        openEXINT0_NUM0
+  C:011EH         PUBLIC        openEXINT1_NUM2
+  D:000CH         PUBLIC        x
+  C:0128H         PUBLIC        key1
+  C:0006H         PUBLIC        key2
+  -------         PROC          MAIN
+  C:00BAH         LINE#         12
+  C:00BAH         LINE#         13
+  C:00BFH         LINE#         14
+  C:00C1H         LINE#         15
+  C:00C4H         LINE#         16
+  C:00C7H         LINE#         17
+  C:00CAH         LINE#         18
+  C:00CAH         LINE#         19
+  C:00CDH         LINE#         20
+  C:00D0H         LINE#         21
+  -------         ENDPROC       MAIN
+  -------         PROC          SHOW16
+  C:0016H         LINE#         23
+  C:0016H         LINE#         24
+  C:001BH         LINE#         25
+  C:001FH         LINE#         26
+  C:002FH         LINE#         27
+  C:003CH         LINE#         28
+  C:0041H         LINE#         29
+  C:004DH         LINE#         30
+  C:0055H         LINE#         31
+  C:0068H         LINE#         32
+  -------         ENDPROC       SHOW16
+  -------         PROC          SHOW10
+  C:0069H         LINE#         33
+  C:0069H         LINE#         34
+  C:006EH         LINE#         35
+  C:0072H         LINE#         36
+  C:0082H         LINE#         37
+  C:008FH         LINE#         38
+  C:0094H         LINE#         39
+  C:00A0H         LINE#         40
+  C:00A6H         LINE#         41
+  C:00B9H         LINE#         42
+  -------         ENDPROC       SHOW10
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/30/2022  22:27:16  PAGE 4
+
+
+  -------         PROC          KEY1
+  C:0128H         LINE#         44
+  C:0128H         LINE#         45
+  C:012EH         LINE#         46
+  -------         ENDPROC       KEY1
+  -------         PROC          TIMER
+  C:00D2H         LINE#         48
+  C:00D4H         LINE#         49
+  C:00DCH         LINE#         50
+  C:00DFH         LINE#         51
+  C:00E2H         LINE#         52
+  -------         ENDPROC       TIMER
+  -------         PROC          KEY2
+  C:0006H         LINE#         54
+  C:0006H         LINE#         55
+  C:0008H         LINE#         56
+  -------         ENDPROC       KEY2
+  -------         PROC          OPENEXINT0_NUM0
+  C:0114H         LINE#         60
+  C:0114H         LINE#         61
+  C:0116H         LINE#         62
+  C:0118H         LINE#         63
+  C:011AH         LINE#         64
+  C:011DH         LINE#         65
+  -------         ENDPROC       OPENEXINT0_NUM0
+  -------         PROC          OPENTIMERINT0_NUM1
+  C:00E5H         LINE#         67
+  C:00E5H         LINE#         68
+  C:00E8H         LINE#         69
+  C:00EBH         LINE#         70
+  C:00EEH         LINE#         71
+  C:00F0H         LINE#         72
+  C:00F2H         LINE#         73
+  C:00F4H         LINE#         74
+  C:00F7H         LINE#         75
+  -------         ENDPROC       OPENTIMERINT0_NUM1
+  -------         PROC          OPENEXINT1_NUM2
+  C:011EH         LINE#         77
+  C:011EH         LINE#         78
+  C:0120H         LINE#         79
+  C:0122H         LINE#         80
+  C:0124H         LINE#         81
+  C:0127H         LINE#         82
+  -------         ENDPROC       OPENEXINT1_NUM2
+  -------         ENDMOD        DIGITAL_LED_01
+
+Program Size: data=15.0 xdata=0 code=296
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

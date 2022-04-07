@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\LCD_CALC_01.obj" 
+TO ".\Objects\LCD_CALC_01" 
+PRINT(".\Listings\LCD_CALC_01.m51")
