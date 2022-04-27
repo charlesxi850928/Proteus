@@ -1,0 +1,91 @@
+C51 COMPILER V9.60.0.0   MOTOR_DC_01                                                       04/27/2022 22:12:02 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MOTOR_DC_01
+OBJECT MODULE PLACED IN .\Objects\MOTOR_DC_01.obj
+COMPILER INVOKED BY: D:\Program\KEIL_MDK\C51\BIN\C51.EXE MOTOR_DC_01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT
+                    -(.\Listings\MOTOR_DC_01.lst) TABS(2) OBJECT(.\Objects\MOTOR_DC_01.obj)
+
+line level    source
+
+   1          #include"reg51.h"      
+   2          
+   3          typedef unsigned char u8;
+   4          typedef unsigned int u16;
+   5          
+   6          sbit dj=P2^0;
+   7          sbit k1=P1^0;
+   8          sbit k2=P1^1;
+   9          sbit k3=P1^2;
+  10          sbit k4=P1^3;
+  11          sbit smgwei1=P3^0;
+  12          sbit smgwei2=P3^1;
+  13          
+  14          u16 T1_H,T1_L,T0_H,T0_L;
+  15          u8 a,fr;
+  16          
+  17          u8 code smgduan[16]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,
+  18                               0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};
+  19             
+  20          void delay(u16 i){  
+  21   1        while(i--);  
+  22   1      }
+  23               
+  24          void init(){    
+  25   1        TMOD=0X01;
+  26   1        EA=1;
+  27   1        ET0=1;
+  28   1      }
+  29          
+  30          void display(){
+  31   1        P0=smgduan[a/10];smgwei1=0; smgwei2=1;delay(100);P0=0X00; 
+  32   1        P0=smgduan[a%10];smgwei1=1; smgwei2=0;delay(100);P0=0X00; 
+  33   1      }
+  34          
+  35          void key(){ 
+  36   1         if(k1==0) {delay(1000);while(!k1);TR0=1;a=50;}
+  37   1         if(k2==0) {delay(1000);while(!k2);TR0=0;dj=0;a=0;}
+  38   1         if(k3==0) {delay(1000);while(!k3);a=(a==100)?100:(a+10);}
+  39   1         if(k4==0) {delay(1000);while(!k4);a=(a==0)?0:(a-10);}
+  40   1      }
+  41          
+  42          void time0 ()interrupt 1{
+  43   1      dj=~dj;
+  44   1      if(dj==1) { TH0=T1_H;TL0=T1_L; }
+  45   1      if(dj==0) { TH0=T0_H;TL0=T0_L; }
+  46   1      }
+  47          
+  48          void chuzhi(){  
+  49   1        T0_H=(65535-10000/fr+a*100/fr)/256;
+  50   1        T0_L=(65535-10000/fr+a*100/fr)%256; 
+  51   1      
+  52   1        T1_H=(65535-a*100/fr)/256;
+  53   1        T1_L=(65535-a*100/fr)%256;   
+  54   1      }
+C51 COMPILER V9.60.0.0   MOTOR_DC_01                                                       04/27/2022 22:12:02 PAGE 2   
+
+  55          
+  56          main(){
+  57   1        dj=0;fr=5;
+  58   1        init();
+  59   1        while(1)
+  60   1        { 
+  61   2          chuzhi();
+  62   2          key(); 
+  63   2          display();
+  64   2        }   
+  65   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    492    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

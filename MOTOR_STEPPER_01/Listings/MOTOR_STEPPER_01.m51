@@ -1,0 +1,193 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/27/2022  23:42:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PROGRAM\KEIL_MDK\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\MOTOR_STEPPER_01.obj TO .\Objects\MOTOR_STEPPER_01
+>>  PRINT (.\Listings\MOTOR_STEPPER_01.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\MOTOR_STEPPER_01.obj (MOTOR_STEPPER_01)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C_INIT)
+  D:\PROGRAM\KEIL_MDK\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\MOTOR_STEPPER_01 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?MOTOR_STEPPER_01
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?CO?MOTOR_STEPPER_01
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     00E0H     UNIT         ?PR?MAIN?MOTOR_STEPPER_01
+            CODE    00EEH     008CH     UNIT         ?C_C51STARTUP
+            CODE    017AH     0055H     UNIT         ?C?LIB_CODE
+            CODE    01CFH     0046H     UNIT         ?PR?TIMER?MOTOR_STEPPER_01
+            CODE    0215H     000BH     UNIT         ?PR?_DELAY?MOTOR_STEPPER_01
+            CODE    0220H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\MOTOR_STEPPER_01 (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MOTOR_STEPPER_01
+  +--> ?C_INITSEG
+
+?PR?MAIN?MOTOR_STEPPER_01
+  +--> ?CO?MOTOR_STEPPER_01
+  +--> ?PR?_DELAY?MOTOR_STEPPER_01
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\MOTOR_STEPPER_01 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/27/2022  23:42:24  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:00EEH         SEGMENT       ?C_C51STARTUP
+  I:000CH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:00F1H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:00EEH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:00EEH         LINE#         133
+  C:00F0H         LINE#         134
+  C:00F1H         LINE#         135
+  C:00F2H         LINE#         136
+  C:00F4H         LINE#         185
+  C:00F7H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MOTOR_STEPPER_01
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  C:0215H         PUBLIC        _delay
+  D:0008H         PUBLIC        TIME_START
+  C:01CFH         PUBLIC        timer
+  C:000EH         PUBLIC        main
+  B:0090H.2       PUBLIC        acc
+  B:0090H.3       PUBLIC        dec
+  D:000AH         PUBLIC        TIME
+  D:0089H         PUBLIC        TMOD
+  B:0090H.1       PUBLIC        neg
+  B:00A8H.1       PUBLIC        ET0
+  C:0003H         PUBLIC        turn
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0090H.0       PUBLIC        pos
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          _DELAY
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/27/2022  23:42:24  PAGE 3
+
+
+  D:0006H         SYMBOL        x
+  C:0215H         LINE#         11
+  C:0215H         LINE#         12
+  C:021FH         LINE#         13
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0003H         SYMBOL        a
+  -------         ENDDO         
+  C:000EH         LINE#         15
+  C:000EH         LINE#         18
+  C:0011H         LINE#         20
+  C:0014H         LINE#         21
+  C:0021H         LINE#         22
+  C:002EH         LINE#         23
+  C:0030H         LINE#         24
+  C:0032H         LINE#         25
+  C:0034H         LINE#         27
+  C:0034H         LINE#         28
+  C:003FH         LINE#         29
+  C:0042H         LINE#         30
+  C:004AH         LINE#         31
+  C:005DH         LINE#         32
+  C:0064H         LINE#         33
+  C:0069H         LINE#         34
+  C:0069H         LINE#         35
+  C:0069H         LINE#         36
+  C:006CH         LINE#         37
+  C:0074H         LINE#         38
+  C:0087H         LINE#         39
+  C:008EH         LINE#         40
+  C:0093H         LINE#         41
+  C:0093H         LINE#         42
+  C:0093H         LINE#         44
+  C:0096H         LINE#         45
+  C:009DH         LINE#         46
+  C:00A0H         LINE#         47
+  C:00ABH         LINE#         48
+  C:00B0H         LINE#         49
+  C:00BCH         LINE#         50
+  C:00BCH         LINE#         51
+  C:00BCH         LINE#         52
+  C:00C2H         LINE#         53
+  C:00C9H         LINE#         54
+  C:00CCH         LINE#         55
+  C:00DAH         LINE#         56
+  C:00DFH         LINE#         57
+  C:00EBH         LINE#         58
+  C:00EBH         LINE#         59
+  C:00EBH         LINE#         60
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER
+  C:01CFH         LINE#         63
+  C:01E2H         LINE#         64
+  C:01EFH         LINE#         65
+  C:01FCH         LINE#         66
+  C:0204H         LINE#         67
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/27/2022  23:42:24  PAGE 4
+
+
+  -------         ENDPROC       TIMER
+  -------         ENDMOD        MOTOR_STEPPER_01
+
+  -------         MODULE        ?C?UIDIV
+  C:017AH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=13.0 xdata=0 code=549
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
