@@ -1,0 +1,40 @@
+C51 COMPILER V9.60.0.0   BUZZER_01                                                         05/06/2022 20:36:15 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE BUZZER_01
+OBJECT MODULE PLACED IN .\Objects\BUZZER_01.obj
+COMPILER INVOKED BY: D:\Program\KEIL_MDK\C51\BIN\C51.EXE BUZZER_01.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\BUZZER_01.lst) TABS(2) OBJECT(.\Objects\BUZZER_01.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit led = P1^0;
+   3          sbit buzzer = P2^0;
+   4          void delay(x){
+   5   1        while(x--);
+   6   1      }
+   7          void main(){
+   8   1        while(1){
+   9   2          led = 0;
+  10   2          buzzer = 0;
+  11   2          delay(50000);
+  12   2          led = 1;
+  13   2          buzzer = 1;
+  14   2          delay(50000);
+  15   2        }
+  16   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     35    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
